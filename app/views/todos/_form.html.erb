@@ -12,15 +12,9 @@
   <% end %>
 
   <div>
-    <%= form.label :description, style: "display: block" %>
-    <%= form.text_field :description %>
+    <%= form.text_field :description, autofocus: true %>
   </div>
-
-  <div>
-    <%= form.label :completed_at, style: "display: block" %>
-    <%= form.datetime_field :completed_at %>
-  </div>
-
+<br>
   <div>
     <%= form.submit %>
   </div>
