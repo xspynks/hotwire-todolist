@@ -1,6 +1,9 @@
+
 <h1>Editing todo</h1>
 
-<%= render "form", todo: @todo %>
+<%= turbo_frame_tag dom_id(@todo) do %>
+  <%= render "form", todo: @todo %>
+<% end %>
 
 <br>
 

@@ -1,7 +1,11 @@
-<div id="<%= dom_id todo %>">
+<%= turbo_frame_tag dom_id(todo) do %>
   <p>
     <strong>Description:</strong>
     <%= todo.description %>
   </p>
 
-</div>
+  <p>
+      <%= link_to "Edit this todo", edit_todo_path(todo) %>
+  </p>
+
+<% end %>
