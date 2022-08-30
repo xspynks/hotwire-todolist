@@ -2,7 +2,7 @@
   <li>
 
     <%= form_with url: toggle_todo_path(todo) do |form| %>
-      <%= check_box_tag dom_id(todo), 1, todo.completed_at?, onchange: "this.form.requestSubmit()" %>
+      <%= check_box_tag dom_id(todo), true, todo.completed_at?, onchange: "this.form.requestSubmit()" %>
     <% end %>
     
 
