@@ -1,5 +1,5 @@
 class TodosController < ApplicationController
-  before_action :set_todo, only: %i[ show edit update destroy ]
+  before_action :set_todo, only: %i[ show edit update destroy toggle ]
 
   def index
     @todos = Todo.all
@@ -49,6 +49,10 @@ class TodosController < ApplicationController
       format.html { redirect_to todos_url, notice: "Todo was successfully destroyed." }
       format.json { head :no_content }
     end
+  end
+
+  def toggle
+    @todo.update completed_at: (@todo.completed_at? ? nil : Time.current)
   end
 
   private

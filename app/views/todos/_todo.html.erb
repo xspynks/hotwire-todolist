@@ -1,6 +1,10 @@
 <%= turbo_frame_tag dom_id(todo) do %>
   <li>
-    <%= check_box_tag dom_id(todo), true, todo.completed_at?, data: { controller: "todo", todo_url_value: toggle_todo_path(todo), action: "click->todo#toggle" } %>
+
+    <%= form_with url: toggle_todo_path(todo) do |form| %>
+      <%= check_box_tag dom_id(todo), 1, todo.completed_at?, onchange: "this.form.requestSubmit()" %>
+    <% end %>
+    
 
     <%= todo.description %>
     
