@@ -1,11 +1,10 @@
 <%= turbo_frame_tag dom_id(todo) do %>
-  <p>
-    <strong>Description:</strong>
-    <%= todo.description %>
-  </p>
+  <li>
+    <%= check_box_tag dom_id(todo), true, todo.completed_at?, data: { controller: "todo", todo_url_value: toggle_todo_path(todo), action: "click->todo#toggle" } %>
 
-  <p>
-      <%= link_to "Edit this todo", edit_todo_path(todo) %>
-  </p>
+    <%= todo.description %>
+    
+    <%= link_to "Edit this todo", edit_todo_path(todo) %>
+  </li>
 
 <% end %>
